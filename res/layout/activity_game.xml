@@ -39,24 +39,24 @@
         <ImageView
             android:id="@+id/ind3"
             android:layout_marginRight="5dp"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:scaleType="fitXY"
             android:layout_gravity="center_vertical"
             android:background="@drawable/indicator_off"/>
         <ImageView
             android:id="@+id/ind4"
             android:layout_marginRight="5dp"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:scaleType="fitXY"
             android:layout_gravity="center_vertical"
             android:background="@drawable/indicator_off"/>
         <ImageView
             android:id="@+id/ind5"
             android:layout_marginRight="5dp"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:scaleType="fitXY"
             android:layout_gravity="center_vertical"
             android:background="@drawable/indicator_off"/>
@@ -70,8 +70,9 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="Large Text"
+        android:textColor="#060"
         android:layout_marginBottom="30dp"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textSize="40sp"/>
 
     <Button
         android:id="@+id/doneButton"
@@ -91,7 +92,7 @@
         android:ems="10"
         android:hint="Answer"
         android:imeOptions="actionGo"
-        android:singleLine="true" />
+        android:singleLine="true"/>
 
     <com.princedragons.geoexpert.GeoTextView
         android:id="@+id/game_title_text"
@@ -99,9 +100,34 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="35dp"
         android:text="Question "
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textSize="40sp"/>
+    
+    <com.princedragons.geoexpert.GeoTextView
+        android:id="@+id/capital_question_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:text="What state has this capital?"
+        android:layout_above="@id/questionText"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone"/>
+    
+    <ImageView
+        android:id="@+id/main_question_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/questionText"
+        android:layout_below="@id/game_title_text"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/alabama"
+        android:scaleType="center" />
 
     <com.princedragons.geoexpert.GeoTextView
         android:id="@+id/scoreText"
@@ -114,6 +140,7 @@
         android:layout_alignParentTop="true"
         android:textStyle="bold"
         android:text="Score: 0"
+        android:textColor="#fff"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

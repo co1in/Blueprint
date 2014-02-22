@@ -4,5 +4,8 @@
     <string name="app_name">GeoExpert</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="play_again">Play Again</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="score">Score List</string>
 
 </resources>
