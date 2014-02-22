@@ -66,7 +66,8 @@ public class GameActivity extends Activity
 	
 	private void addAnswerKeyListener()
 	{
-		answerField.setOnKeyListener(new OnKeyListener(){
+		answerField.setOnKeyListener(new OnKeyListener()
+		{
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event)
 			{
@@ -74,7 +75,6 @@ public class GameActivity extends Activity
 				{
 		            correctAnswer();
 		        }
-				
 				return false;
 			}
 		});
@@ -108,7 +108,7 @@ public class GameActivity extends Activity
 	public void updateQuestion()
 	{
 		titleView.setText("Question " + questionNumber);
-		titleView.setBackgroundColor(Color.WHITE);
+		titleView.setBackgroundColor(Color.TRANSPARENT);
 		newQuestionNumber = gen.nextInt(states.size());
 		questionKind = gen.nextBoolean();
 		if(questionKind)
