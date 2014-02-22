@@ -66,7 +66,8 @@ public class GameActivity extends Activity
 	
 	private void addAnswerKeyListener()
 	{
-		answerField.setOnKeyListener(new OnKeyListener(){
+		answerField.setOnKeyListener(new OnKeyListener()
+		{
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event)
 			{
@@ -74,7 +75,6 @@ public class GameActivity extends Activity
 				{
 		            correctAnswer();
 		        }
-				
 				return false;
 			}
 		});
