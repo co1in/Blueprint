@@ -23,46 +23,85 @@
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/indicator_off"/>
+            android:background="@drawable/indicator_off"/>
         <ImageView
             android:id="@+id/ind2"
             android:layout_marginRight="5dp"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/indicator_off"/>
+            android:background="@drawable/indicator_off"/>
         <ImageView
             android:id="@+id/ind3"
             android:layout_marginRight="5dp"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/indicator_off"/>
+            android:background="@drawable/indicator_off"/>
         <ImageView
             android:id="@+id/ind4"
             android:layout_marginRight="5dp"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/indicator_off"/>
+            android:background="@drawable/indicator_off"/>
         <ImageView
             android:id="@+id/ind5"
             android:layout_marginRight="5dp"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/indicator_off"/>
+            android:background="@drawable/indicator_off"/>
         
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/questionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Large Text"
+        android:layout_marginBottom="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/doneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="Enter" />
+
+    <EditText
+        android:id="@+id/answerField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionText"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Answer"
+        android:imeOptions="actionGo"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/game_title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="65dp"
         android:text="Question "
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Score: 0"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
