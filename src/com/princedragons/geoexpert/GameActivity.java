@@ -5,9 +5,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Random;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -33,11 +37,14 @@ public class GameActivity extends Activity
 	Random gen;
 	boolean questionKind;
 	boolean questionIsBeingAsked = true;
+	ScoreDatabase db;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+		
+		db = new ScoreDatabase(this);
 		setContentView(R.layout.activity_game);
 		states = new ArrayList<State>();
 		processInfoFile();
@@ -74,6 +81,10 @@ public class GameActivity extends Activity
 				if(keyCode == event.KEYCODE_ENTER)
 				{
 		            correctAnswer();
+		            answerField.setEnabled(false);
+					button.setText("Next Question");
+					questionIsBeingAsked = false;
+					return true;
 		        }
 				return false;
 			}
@@ -193,7 +204,41 @@ public class GameActivity extends Activity
 	
 	private void gameOver()
 	{
-		Toast.makeText(this, "Game Over", Toast.LENGTH_LONG).show();
+		saveScore();
+		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+		dialog.setTitle("Game Over");
+		dialog.setMessage("Your Score: " + score);
+		dialog.setCancelable(false);
+		dialog.setPositiveButton(R.string.play_again, new DialogInterface.OnClickListener() 
+		{
+			@Override
+			public void onClick(DialogInterface dialog, int which) 
+			{
+				Intent i = new Intent(GameActivity.this, GameActivity.class);
+				startActivity(i);
+				finish();
+			}
+		});
+		dialog.setNegativeButton("Score List", new DialogInterface.OnClickListener()
+		{
+			@Override
+			public void onClick(DialogInterface dialog, int which) 
+			{
+				Intent i = new Intent(GameActivity.this, );
+			}
+		});
+	}
+	
+	public void saveScore()
+	{
+		Calendar cal = Calendar.getInstance();
+		int day = cal.get(Calendar.DAY_OF_MONTH);
+		int month = cal.get(Calendar.MONTH);
+		int year = cal.get(Calendar.YEAR);
+		String date = month + "/" + day + "/" + year;
+		
+		Score newScore = new Score(date, score);
+		db.addScore(newScore);
 	}
 	
 	private void processInfoFile()
