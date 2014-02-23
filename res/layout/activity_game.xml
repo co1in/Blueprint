@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
+        android:id="@+id/wrong_view"
         android:layout_alignParentBottom="true">
 
         <com.princedragons.geoexpert.GeoTextView
@@ -70,24 +71,35 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="Large Text"
-        android:textColor="#060"
+        android:textColor="#006"
         android:layout_marginBottom="30dp"
+        android:textSize="40sp"/>
+    <com.princedragons.geoexpert.GeoTextView
+        android:id="@+id/answerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionText"
+        android:text="Large Text"
+        android:textColor="#080"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:textSize="40sp"/>
 
     <Button
         android:id="@+id/doneButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/answerField"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:text="Enter" />
+        android:layout_marginTop="12dp"
+        android:layout_above="@id/wrong_view"
+        android:text="Enter"/>
 
     <EditText
         android:id="@+id/answerField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/questionText"
+        android:layout_above="@+id/doneButton"
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="Answer"
@@ -118,7 +130,7 @@
     
     <ImageView
         android:id="@+id/main_question_image"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/questionText"
         android:layout_below="@id/game_title_text"
@@ -126,6 +138,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+        android:visibility="gone"
         android:background="@drawable/alabama"
         android:scaleType="center" />
 

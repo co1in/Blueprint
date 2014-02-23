@@ -1,5 +1,14 @@
 package com.princedragons.geoexpert;
 
-public class ScoreActivity {
+import android.app.Activity;
+import android.os.Bundle;
 
+public class ScoreActivity extends Activity
+{
+	@Override
+	protected void onCreate(Bundle save)
+	{
+		super.onCreate(save);
+		
+	}
 }

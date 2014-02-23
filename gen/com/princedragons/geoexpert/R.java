@@ -82,24 +82,28 @@ public final class R {
         public static final int wyoming=0x7f02003a;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000d;
-        public static final int answerField=0x7f080007;
-        public static final int capital_question_text=0x7f080009;
-        public static final int doneButton=0x7f080006;
-        public static final int game_title_text=0x7f080008;
-        public static final int ind1=0x7f080000;
-        public static final int ind2=0x7f080001;
-        public static final int ind3=0x7f080002;
-        public static final int ind4=0x7f080003;
-        public static final int ind5=0x7f080004;
-        public static final int main_question_image=0x7f08000a;
-        public static final int playButton=0x7f08000c;
-        public static final int questionText=0x7f080005;
-        public static final int scoreText=0x7f08000b;
+        public static final int action_settings=0x7f08000f;
+        public static final int answerField=0x7f080009;
+        public static final int answerText=0x7f080007;
+        public static final int capital_question_text=0x7f08000b;
+        public static final int doneButton=0x7f080008;
+        public static final int game_title_text=0x7f08000a;
+        public static final int ind1=0x7f080001;
+        public static final int ind2=0x7f080002;
+        public static final int ind3=0x7f080003;
+        public static final int ind4=0x7f080004;
+        public static final int ind5=0x7f080005;
+        public static final int main_question_image=0x7f08000c;
+        public static final int playButton=0x7f08000e;
+        public static final int questionText=0x7f080006;
+        public static final int scoreText=0x7f08000d;
+        public static final int wrong_view=0x7f080000;
     }
     public static final class layout {
         public static final int activity_game=0x7f030000;
         public static final int activity_main=0x7f030001;
+        public static final int activity_score=0x7f030002;
+        public static final int list_item=0x7f030003;
     }
     public static final class menu {
         public static final int main=0x7f070000;

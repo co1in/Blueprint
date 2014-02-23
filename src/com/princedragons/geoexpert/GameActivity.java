@@ -14,6 +14,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -32,12 +33,14 @@ public class GameActivity extends Activity
 	int numberWrong = 0;
 	ImageView[] wrongViews;
 	Button button;
-	TextView titleView, questionText, scoreText;
+	TextView titleView, questionText, scoreText, answerText;
 	int questionNumber = 1, score = 0, newQuestionNumber;
 	Random gen;
 	boolean questionKind;
 	boolean questionIsBeingAsked = true;
 	ScoreDatabase db;
+	ImageView mainImage;
+	TextView capitalText;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -67,6 +70,11 @@ public class GameActivity extends Activity
 		scoreText = (TextView)this.findViewById(R.id.scoreText);
 		
 		gen = new Random();
+		
+		
+		mainImage = (ImageView)this.findViewById(R.id.main_question_image);
+		capitalText = (TextView)this.findViewById(R.id.capital_question_text);
+		answerText = (TextView)this.findViewById(R.id.answerText);
 		
 		updateQuestion();
 	}
@@ -118,6 +126,7 @@ public class GameActivity extends Activity
 	
 	public void updateQuestion()
 	{
+		answerText.setVisibility(View.GONE);
 		titleView.setText("Question " + questionNumber);
 		titleView.setBackgroundColor(Color.TRANSPARENT);
 		newQuestionNumber = gen.nextInt(states.size());
@@ -125,10 +134,23 @@ public class GameActivity extends Activity
 		if(questionKind)
 		{
 			questionText.setText(states.get(newQuestionNumber).name);
+			String imageLoc = states.get(newQuestionNumber).name.replace(" ", "_").toLowerCase() + "_state.png";
+			Drawable mainImageD = null;
+			try {
+				mainImageD = Drawable.createFromStream(getAssets().open(imageLoc), null);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			mainImage.setBackground(mainImageD);
+			mainImage.setVisibility(View.VISIBLE);
+			capitalText.setVisibility(View.GONE);
 		}
 		else
 		{
 			questionText.setText(states.get(newQuestionNumber).capital);
+			capitalText.setVisibility(View.VISIBLE);
+			mainImage.setVisibility(View.GONE);
 		}
 	}
 	
@@ -137,6 +159,7 @@ public class GameActivity extends Activity
 		String answer = answerField.getText().toString();
 		if(questionKind)
 		{
+			answerText.setText("Answer: " + states.get(newQuestionNumber).capital);
 			if(Math.abs(answer.compareToIgnoreCase(states.get(newQuestionNumber).capital)) == 0)
 			{
 				answerCorrect();
@@ -148,6 +171,7 @@ public class GameActivity extends Activity
 		}
 		else
 		{
+			answerText.setText("Answer: " + states.get(newQuestionNumber).name);
 			if(Math.abs(answer.compareToIgnoreCase(states.get(newQuestionNumber).name)) == 0)
 			{
 				answerCorrect();
@@ -157,6 +181,7 @@ public class GameActivity extends Activity
 				answerWrong();
 			}
 		}
+		answerText.setVisibility(View.VISIBLE);
 	}
 	
 	public void answerCorrect()
@@ -219,14 +244,28 @@ public class GameActivity extends Activity
 				finish();
 			}
 		});
-		dialog.setNegativeButton("Score List", new DialogInterface.OnClickListener()
+		dialog.setNeutralButton("Score List", new DialogInterface.OnClickListener()
+		{
+			@Override
+			public void onClick(DialogInterface dialog, int which)
+			{
+				Intent i = new Intent(GameActivity.this, ScoreActivity.class);
+				startActivity(i);
+				finish();
+			}
+		});
+		
+		dialog.setNegativeButton("Main Menu", new DialogInterface.OnClickListener() 
 		{
 			@Override
 			public void onClick(DialogInterface dialog, int which) 
 			{
-				Intent i = new Intent(GameActivity.this, );
+				Intent i = new Intent(GameActivity.this, MainActivity.class);
+				startActivity(i);
+				finish();
 			}
 		});
+		dialog.show();
 	}
 	
 	public void saveScore()
