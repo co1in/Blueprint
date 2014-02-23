@@ -18,17 +18,27 @@
 
     <ImageView
         android:id="@+id/imageButton2"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/imageView1"
+        android:layout_alignParentLeft="true"
         android:src="@drawable/Share" />
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageButton2"
+        android:layout_alignParentBottom="true"
+        android:text="**5 strikes. You&apos;re out."
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
     <ImageView
-        android:id="@+id/imageButton1"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_above="@+id/imageButton2"
-        android:layout_alignParentLeft="true"
-        android:src="@drawable/Modes" />
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView1"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/Start" />
 
 </RelativeLayout>
